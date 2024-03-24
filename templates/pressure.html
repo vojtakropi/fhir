@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  h2 {
+    color: #333;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #666;
+  }
+  input[type="text"],
+  input[type="datetime-local"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+{% if data %}
+  <a href="{{ url_for('getfile',file = data)}}" > Download JSON REPORT</a>
+  <p>CRC32 of the file  =  {{crc}}</p>
+{% else %}
+
+    <form class="pressure" method="post">
+
+      <label for="observation_id">Observation ID:</label><br>
+      <input type="text" id="observation_id" name="observation_id" readonly value="f005"><br><br>
+
+      <label for="observation_status">Observation Status:</label><br>
+      <input type="text" id="observation_status" name="observation_status"><br><br>
+
+      <label for="code">LOINC Code:</label><br>
+      <input type="text" id="code" name="code" value="718-7" readonly><br><br>
+
+      <label for="subject_reference">Subject ID:</label><br>
+      <input type="text" id="subject_reference" name="subject_reference" ><br><br>
+
+      <label for="subject_display">Subject display name:</label><br>
+      <input type="text" id="subject_display" name="subject_display" ><br><br>
+
+      <label for="text_field">Text: </label><br>
+      <input type="text" id="text_field" name="text_field" ><br><br>
+
+      <label for="effective_date">Effective Date:</label><br>
+      <input type="datetime-local" id="effective_date" name="effective_date" ><br><br>
+
+      <label for="issued_date">Issued Date:</label><br>
+      <input type="datetime-local" id="issued_date" name="issued_date" ><br><br>
+
+      <label for="performer_reference">Docotr ID</label><br>
+      <input type="text" id="performer_reference" name="performer_reference" ><br><br>
+
+      <label for="performer_display">Doctor Name:</label><br>
+      <input type="text" id="performer_display" name="performer_display" ><br><br>
+
+      <label for="value">Value:</label><br>
+      <input type="text" id="value" name="value" ><br><br>
+
+      <label for="unit">Unit:</label><br>
+      <input type="text" id="unit" name="unit" value="g/dl" readonly><br><br>
+
+      <label for="interpretation_code">Interpretation Code:</label><br>
+      <input type="text" id="interpretation_code" name="interpretation_code" ><br><br>
+
+      <label for="interpretation_display">Interpretation Display:</label><br>
+      <input type="text" id="interpretation_display" name="interpretation_display" ><br><br>
+
+      <label for="low_value">Low Value:</label><br>
+      <input type="text" id="low_value" name="low_value" readonly value="7.5"> <br><br>
+
+      <label for="high_value">High Value:</label><br>
+      <input type="text" id="high_value" name="high_value" readonly value="10"><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+
+{% endif %}
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if error %}
+    <p> {{ error }}</p>
+{% endif %}
+
+    {% if values %}
+    <div style="display: flex;">
+      <div style="flex-grow: 2;">
+        <form class="pressure" method="post">
+
+          <label for="observation_id">Observation ID:</label><br>
+          <input type="text" id="observation_id" name="observation_id" readonly value="{{values['id']}}"><br><br>
+
+          <label for="observation_status">Observation Status:</label><br>
+          <input type="text" id="observation_status" name="observation_status" value="{{values['status']}}"><br><br>
+
+          <label for="code">LOINC Code:</label><br>
+          <input type="text" id="code" name="code" value="{{values['code']['coding'][0]['code']}}" readonly><br><br>
+
+          <label for="subject_reference">Subject ID:</label><br>
+          <input type="text" id="subject_reference" name="subject_reference" value="{{values['subject']['reference']}}" ><br><br>
+
+          <label for="subject_display">Subject display name:</label><br>
+          <input type="text" id="subject_display" name="subject_display" value="{{values['subject']['display']}}"><br><br>
+
+          <label for="text_field">Text: </label><br>
+          <input type="text" id="text_field" name="text_field" value="{{values['text']['string']}}"><br><br>
+
+          <label for="effective_date">Effective Date:</label><br>
+          <input type="datetime-local" id="effective_date" name="effective_date" value="{{values['effectiveDateTime']}}"><br><br>
+
+          <label for="issued_date">Issued Date:</label><br>
+          <input type="datetime-local" id="issued_date" name="issued_date" value="{{values['issued']}}"><br><br>
+
+          <label for="performer_reference">Docotr ID</label><br>
+          <input type="text" id="performer_reference" name="performer_reference" value="{{values['performer'][0]['reference']}}"><br><br>
+
+          <label for="performer_display">Doctor Name:</label><br>
+          <input type="text" id="performer_display" name="performer_display" value="{{values['performer'][0]['display']}}"><br><br>
+
+          <label for="value">Value:</label><br>
+          <input type="text" id="value" name="value" value="{{values['valueQuantity']['value']}}"><br><br>
+
+          <label for="unit">Unit:</label><br>
+          <input type="text" id="unit" name="unit" value="g/dl" readonly><br><br>
+
+          <label for="interpretation_code">Interpretation Code:</label><br>
+          <input type="text" id="interpretation_code" name="interpretation_code" value="{{values['interpretation'][0]['coding'][0]['code']}}"><br><br>
+
+          <label for="interpretation_display">Interpretation Display:</label><br>
+          <input type="text" id="interpretation_display" name="interpretation_display" value="{{values['interpretation'][0]['coding'][0]['display']}}"><br><br>
+
+          <label for="low_value">Low Value:</label><br>
+          <input type="text" id="low_value" name="low_value" value="{{values['referenceRange'][0]['low']['value']}}"><br><br>
+
+          <label for="high_value">High Value:</label><br>
+          <input type="text" id="high_value" name="high_value" value="{{values['referenceRange'][0]['high']['value']}}"><br><br>
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    {% endif %}
+    <div style="flex-grow: 1;">
+      <form method="post" enctype="multipart/form-data">
+          <input type="file" id="myFile" name="file" >
+          <label for="crc">INSERT CRC VALUE:</label>
+          <input type="number" id="crc" name="crc">
+          <input type="submit">
+      </form>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

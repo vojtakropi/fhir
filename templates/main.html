@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        a {
+            display: block;
+            width: 50%;
+            margin: 20px auto;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Vyber vyšetření</h1>
+
+<div class="container">
+    <a href="/pressure">Měření tlaku</a>
+    <a href="/pressure_in">Nahrání tlaku</a>
+    <p> MD5HASH  =  {{md5_hash}} </p>
+</div>
+
+</body>
+</html>
