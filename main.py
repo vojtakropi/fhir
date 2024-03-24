@@ -21,7 +21,7 @@ def index():
 def calculate_md5():
     md5 = hashlib.md5()
     for root, dirs, files in os.walk(app.root_path):
-        dirs[:] = [d for d in dirs if d not in "files"]
+        dirs[:] = [d for d in dirs if d not in ("files", ".git")]
         for file in files:
             if file == '.env':
                 continue
